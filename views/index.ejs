@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groceries Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Categories </h1>
+
+    <main>
+        
+        <% if ( locals.categories && locals.categories.length > 0 ) { %>
+            <section>
+            <ul>
+                <% categories.forEach(category => { %>
+                    <li>
+                        <a href="/categories/<%= encodeURIComponent(category.name) %>/"> <%= category.name %> </a>
+                        <form action="/?category_id=<%= category.id %>" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" title="This Action Will Delete All Items Too">Delete</button>
+                        </form> 
+                    </li>
+                    <% }); %>
+                </ul>
+            </section>
+        <% } %> 
+            <a href="/categories/create">Add New Category</a>
+        </main>
+</body>
+</html>

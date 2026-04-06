@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Category</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Update Category</h1>
+      <% if ( locals.errorMessage ) {%>
+        <%- include("snippets/errorMessage", {errorMessage: locals.errorMessage}) %>
+      <% } %>
+      <form action="" method="post">
+        <input type="hidden" name="_method" value="PUT" />
+        <label for="category-name">Category Name:-</label>
+        <input type="text" name="categoryName" id="category-name" value="<%= locals?.category?.name || '' %>" />
+        <%- include("snippets/formError",{name: "categoryName"}) %>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description"> <%= locals?.category?.description || "" %> </textarea>
+        <%- include("snippets/formError",{name: "description"}) %>
+
+        <button type="submit">Update Category</button>
+      </form>
+    </main>
+  </body>
+</html>

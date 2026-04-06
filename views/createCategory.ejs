@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Category</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1> Add new category </h1>
+      <% if ( locals.errorMessage ) {%>
+        <%- include("snippets/errorMessage", {errorMessage: locals.errorMessage}) %>
+      <% } %>
+      <form action="" method="post">
+        <label for="category-name">Category Name:-</label>
+        <input type="text" name="categoryName" id="category-name" />
+        <%- include("snippets/formError",{name: "categoryName"}) %>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+        <%- include("snippets/formError",{name: "description"}) %>
+
+        <button type="submit">Add Category</button>
+      </form>
+    </main>
+  </body>
+</html>
