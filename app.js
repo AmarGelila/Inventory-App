@@ -52,9 +52,3 @@ app.listen(process.env.PORT || 3000, (err) => {
   if (err) throw err;
   console.log(`Server running at port ${process.env.PORT}`);
 });
-
-/*
-    409   render route with error message
-    404   render error page with home link
-
-*/
